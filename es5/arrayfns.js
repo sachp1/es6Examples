@@ -50,7 +50,7 @@ console.log("filteredArray", filteredArray)
 
 
 
-var contactNames = ['John', 'Peter', 'Ryan', 'Dan']
+let contactNames = ['John', 'Peter', 'Ryan', 'Dan']
 
 var filteredNames = contactNames.filter(function (name) {
     return name.indexOf('an') !== -1
@@ -59,6 +59,10 @@ var filteredNames = contactNames.filter(function (name) {
 console.log('Filtered Names', filteredNames)
 
 
+function hello(){
+ var i = 123;
+ console.log(i);
+}
 
 
 var contactNames = ['John', 'Peter', 'Ryan', 'Dan']

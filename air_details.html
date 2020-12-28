@@ -23,7 +23,7 @@
 	                }
 	            ];
 	            resolve(flights);
-	        }, 5000);
+	        },1000);
     	});
 	};
 
@@ -37,7 +37,7 @@
                 return flight.flightNo === 2222 ? { ...flight, departed: true } : flight
             })
             resolve(modifiedFlights);
-        	}, 5000);
+        	}, 500);
     	});
 	};
 
@@ -68,6 +68,7 @@
 
 		function onclk(){
 			//let flights =null;
+			document.getElementById("tol").innerHTML=""
 			if(flights_body!=null){
 			flights_body.forEach(e=>{
 			var newDiv = document.createElement('li');
