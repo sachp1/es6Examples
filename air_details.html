@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>doc2</title>
+		<script type="text/javascript">
+	
+			// document.getElementById("tol").innerHTML= newContact.join('');
+
+		var flights_body=null;
+		const getFlights = () => {
+	    return new Promise((resolve, reject) => {
+	        setTimeout(function () {
+	            const flights = [
+	                {
+	                    carrierCode: "NH",
+	                    flightNo: 1111,
+	                    departed: false
+	                },
+	                {
+	                    carrierCode: "NH",
+	                    flightNo: 2222,
+	                    departed: false
+	                }
+	            ];
+	            resolve(flights);
+	        }, 5000);
+    	});
+	};
+
+
+//-----------------------------------------
+
+	const modifyFlight = (flights) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(function () {
+            const modifiedFlights = flights.map((flight) => {
+                return flight.flightNo === 2222 ? { ...flight, departed: true } : flight
+            })
+            resolve(modifiedFlights);
+        	}, 5000);
+    	});
+	};
+
+	getFlights()
+        .then(f=>flights_body=f);
+	</script>
+</head>
+<body>
+	Hello
+
+	<button onclick="onclk()" >View</button>
+	
+	<button onclick="onModify()">Modify</button>
+	<p>
+		<ol>List
+		<span id="tol"></span>
+		</ol>
+	</p>
+		<script type="text/javascript">
+		
+		function onModify(){
+			getFlights()
+        .then(flights => modifyFlight(flights))
+        .then(modifiedFlights=>flights_body=modifiedFlights)
+        .catch(error => console.log(error));
+		}
+
+
+		function onclk(){
+			//let flights =null;
+			if(flights_body!=null){
+			flights_body.forEach(e=>{
+			var newDiv = document.createElement('li');
+			newDiv.innerHTML= e.carrierCode +" "+e.flightNo+" Departed: "+e.departed;
+			document.getElementById("tol").appendChild(newDiv);
+			});
+							
+			}
+			//console.log("in body",newContact )
+			 
+		}
+	</script>
+</body>
+</html>
