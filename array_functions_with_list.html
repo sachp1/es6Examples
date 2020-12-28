@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>doc</title>
+		<script type="text/javascript">
+		var contactNames = ['John','Beast', 'Peter', 'Ryan', 'Dan','sachin','prakash']
+		var newContact = contactNames.map(function (name) {
+		    return "Mr " + name
+		}).filter(n=>n!='Mr Dan')
+
+		console.log("loading.. " ,newContact)
+			// document.getElementById("tol").innerHTML= newContact.join('');
+		
+	</script>
+</head>
+<body >
+	Hello
+
+	<button onclick="onclk()" >click me</button>
+	
+
+	<p>
+		<ol>List
+		<span id="tol"></span>
+		</ol>
+	</p>
+		<script type="text/javascript">
+		
+		function onclk(){
+			console.log("in body",newContact )
+			newContact.forEach(e=>{
+			var newDiv = document.createElement('li');
+			newDiv.innerHTML= e;
+			document.getElementById("tol").appendChild(newDiv);
+			}) 
+			newContact=contactNames.map(e=>e);
+		}
+	</script>
+</body>
+</html>
